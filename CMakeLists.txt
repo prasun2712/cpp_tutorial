@@ -22,7 +22,10 @@ include_directories("include")
 # set(SOURCES src/mainapp.cpp src/xyz.cpp)
 
 # However, the file(GLOB...) allows for wildcard additions:
-file(GLOB SOURCES "src/*.cpp")
-
+# file(GLOB SOURCES "src/*.cpp")
 # Finally, the add_executable() command tells CMake to create an executable using the specified source code files.
+set(SOURCES src/01_hello_world.cpp)
 add_executable(01_hello_world ${SOURCES})
+
+set(SOURCES src/02_pointers.cpp)
+add_executable(02_pointers ${SOURCES})
