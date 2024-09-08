@@ -10,4 +10,9 @@ This repo contains cpp tutorial with cmake.
     
     - **add_executable()** : The add_executable() command tells CMake to create an executable using the specified source code files.
 
--
+
+- **Specifying the C++ Standard** : We will need to explicitly state in the CMake code that it should use the correct flags. One way to enable support for a specific C++ standard in CMake is by using the **CMAKE_CXX_STANDARD** variable. For this tutorial, set the CMAKE_CXX_STANDARD variable in the CMakeLists.txt file to 17 and **CMAKE_CXX_STANDARD_REQUIRED** to True. Make sure to add the CMAKE_CXX_STANDARD declarations above the call to add_executable().
+
+- **include_directories(x/y)** affects directory scope. All executable targets in this CMakeList, as well as those in all subdirectories added after the point of its call, will have the path x/y added to their include path. <br /> **target_include_directories(t x/y)** has target scope—it adds x/y to the include path for executable target t.
+
+-  
