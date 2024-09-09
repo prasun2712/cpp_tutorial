@@ -32,3 +32,6 @@ add_executable(02_pointers ${SOURCES})
 
 set(SOURCES src/03_dynamic_memory.cpp)
 add_executable(03_dynamic_memory ${SOURCES})
+
+set(SOURCES src/04_structures.cpp)
+add_executable(04_structures ${SOURCES})
