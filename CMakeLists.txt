@@ -29,3 +29,6 @@ add_executable(01_hello_world ${SOURCES})
 
 set(SOURCES src/02_pointers.cpp)
 add_executable(02_pointers ${SOURCES})
+
+set(SOURCES src/03_dynamic_memory.cpp)
+add_executable(03_dynamic_memory ${SOURCES})
