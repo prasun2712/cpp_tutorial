@@ -39,18 +39,29 @@ int main()
     */
 
     movies_t amovie;
-    movies_t *pmovie;
-    pmovie = &amovie;
+    
+    // movies_t *pmovie;
+    // pmovie = &amovie;
+    // cout << "Enter title: ";
+    // getline(cin, pmovie->title);
+    // cout << "Enter year: ";
+    // getline(cin, mystr);
+    // (stringstream) mystr >> pmovie->year;
 
+    movies_t *pmovie = new movies_t;
     cout << "Enter title: ";
-    getline(cin, pmovie->title);
+    getline(cin, amovie.title);
     cout << "Enter year: ";
     getline(cin, mystr);
-    (stringstream) mystr >> pmovie->year;
+    (stringstream) mystr >> amovie.year;
+    *pmovie = amovie;
+
+
 
     cout << "\nYou have entered:\n";
     cout << pmovie->title;
     cout << " (" << pmovie->year << ")\n";
+    delete pmovie;
 
     return 0;
 }
