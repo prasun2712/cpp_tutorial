@@ -40,6 +40,7 @@ int main()
 
     movies_t amovie;
     
+    // Correct way to use it.
     // movies_t *pmovie;
     // pmovie = &amovie;
     // cout << "Enter title: ";
