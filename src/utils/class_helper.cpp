@@ -1,7 +1,13 @@
 #include "class_helper.hpp"
 
-void Rectangle::set_values(int x, int y)
+Rectangle::Rectangle(int x, int y)
 {
     width = x;
     height = y;
 };
+
+Rectangle::Rectangle()
+{
+    width = 5;
+    height = 5;
+}

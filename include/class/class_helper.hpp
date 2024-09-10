@@ -8,7 +8,17 @@ class Rectangle
   int width, height;
 
 public:
-  void set_values(int, int);
+  /*
+  In order to avoid that, a class can include a special function called its constructor, which is automatically called whenever a new object of this class is created,
+  allowing the class to initialize member variables or allocate storage.
+  This constructor function is declared just like a regular member function, but with a name that matches the class name and without any return type; not even void.
+  */
+  /*
+  Overloading Constructor - a constructor can also be overloaded with different versions taking different parameters:
+  with a different number of parameters and/or parameters of different types. The compiler will automatically call the one whose parameters match the arguments:
+  */
+  Rectangle(int, int);
+  Rectangle();
   int area() { return width * height; }
 };
 
