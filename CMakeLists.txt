@@ -15,8 +15,8 @@ project(cpp_tutorial)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Bring the headers, such as xyz.hpp into the project
-include_directories("include")
+# Bring the headers, such as xyz.hpp into the project. This makes headers available for all the apps within the program.
+# include_directories("include")
 
 # Can manually add the sources using the set command as follows:
 # set(SOURCES src/mainapp.cpp src/xyz.cpp)
@@ -26,6 +26,7 @@ include_directories("include")
 # Finally, the add_executable() command tells CMake to create an executable using the specified source code files.
 set(SOURCES src/01_hello_world.cpp)
 add_executable(01_hello_world ${SOURCES})
+target_include_directories(01_hello_world PUBLIC "include")
 
 set(SOURCES src/02_pointers.cpp)
 add_executable(02_pointers ${SOURCES})
@@ -35,3 +36,8 @@ add_executable(03_dynamic_memory ${SOURCES})
 
 set(SOURCES src/04_structures.cpp)
 add_executable(04_structures ${SOURCES})
+
+set(SOURCES src/05_class_example.cpp src/utils/class_helper.cpp)
+add_executable(05_class_example ${SOURCES})
+target_include_directories(05_class_example PUBLIC "include/class")
+
