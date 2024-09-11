@@ -37,7 +37,7 @@ add_executable(03_dynamic_memory ${SOURCES})
 set(SOURCES src/04_structures.cpp)
 add_executable(04_structures ${SOURCES})
 
-set(SOURCES src/05_class_example.cpp src/utils/class_helper.cpp)
-add_executable(05_class_example ${SOURCES})
-target_include_directories(05_class_example PUBLIC "include/class")
+set(SOURCES src/05_class_example_01.cpp src/utils/class_helper.cpp)
+add_executable(05_class_example_01 ${SOURCES})
+target_include_directories(05_class_example_01 PUBLIC "include/class")
 
