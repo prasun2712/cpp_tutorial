@@ -19,7 +19,33 @@ public:
   */
   Rectangle(int, int);
   Rectangle();
-  int area() { return width * height; }
+  int area();
+};
+
+/*
+Uniform initialization.
+*/
+class Circle
+{
+  double radius;
+
+public:
+  Circle(double r);
+  double circum();
+  double area();
+};
+
+/*
+Member initialization in constructors
+*/
+class Cylinder
+{
+  Circle base;
+  double height;
+
+public:
+  Cylinder(double, double);
+  double volume();
 };
 
 #endif
