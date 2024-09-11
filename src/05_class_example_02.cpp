@@ -49,6 +49,16 @@ int main()
 
     /*
     Pointers to classes
+    expression  |  can be read as
+    -------------------------------
+        *x      |  pointed to by x
+        &x	    |  address of x
+        x.y	    |  member y of object x
+        x->y	|  member y of object pointed to by x
+        (*x).y	|  member y of object pointed to by x (equivalent to the previous one)
+        x[0]	|  first object pointed to by x
+        x[1]	|  second object pointed to by x
+        x[n]	|  (n+1)th object pointed to by x
     */
     Rectangle rect_obj(3, 4);
     Rectangle *rect_foo, *rect_bar, *rect_baz;
