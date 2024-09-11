@@ -41,7 +41,26 @@ int main()
     std::cout << "baz's circumference: " << baz.circum() << '\n';
     std::cout << "qux's circumference: " << qux.circum() << '\n';
 
-    Cylinder poo {10, 20};
+    /*
+    Member initialization in constructors
+    */
+    Cylinder poo{10, 20};
     std::cout << "foo's volume: " << poo.volume() << '\n';
+
+    /*
+    Pointers to classes
+    */
+    Rectangle rect_obj(3, 4);
+    Rectangle *rect_foo, *rect_bar, *rect_baz;
+    rect_foo = &rect_obj;
+    rect_bar = new Rectangle(5, 6);
+    rect_baz = new Rectangle[2]{{2, 5}, {3, 6}};
+    std::cout << "rect_obj's area: " << rect_obj.area() << '\n';
+    std::cout << "*rect_foo's area: " << rect_foo->area() << '\n';
+    std::cout << "*rect_bar's area: " << rect_bar->area() << '\n';
+    std::cout << "rect_baz[0]'s area:" << rect_baz[0].area() << '\n';
+    std::cout << "rect_baz[1]'s area:" << rect_baz[1].area() << '\n';
+    delete rect_bar;
+    delete[] rect_baz;
     return 0;
 }
