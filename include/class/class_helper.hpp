@@ -60,4 +60,11 @@ public:
   CVector operator+(const CVector &);
 };
 
+/*
+Notice that some operators may be overloaded in two forms: either as a member function or as a non-member function: 
+The first case has been used in the example above for operator+. But some operators can also be overloaded as non-member functions; 
+In this case, the operator function takes an object of the proper class as first argument.
+*/
+CVector operator- (const CVector& , const CVector&);
+
 #endif

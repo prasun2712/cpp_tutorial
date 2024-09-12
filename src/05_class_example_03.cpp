@@ -35,5 +35,9 @@ int main()
     result = foo + bar;
     // result = foo.operator+ (bar);
     std::cout << "result.x is : " << result.x << ',' << " and result.y is : " << result.y << '\n';
+
+    result = foo - bar;
+    std::cout << "result.x is : " << result.x << ',' << " and result.y is : " << result.y << '\n';
+    
     return 0;
 }

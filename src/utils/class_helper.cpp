@@ -85,13 +85,13 @@ double Cylinder::volume()
 
 /*
 Overloading operators
-Operators are overloaded by means of operator functions, which are regular functions with special names: 
+Operators are overloaded by means of operator functions, which are regular functions with special names:
 their name begins by the operator keyword followed by the operator sign that is overloaded. The syntax is:
  - type operator sign (parameters) { ... body ... }
 
-For example, cartesian vectors are sets of two coordinates: x and y. 
-The addition operation of two cartesian vectors is defined as the addition both x coordinates together, and both y coordinates together. 
-For example, adding the cartesian vectors (3,1) and (5,2) together would result in (3+5,1+2) = (8,3). This could be implemented in C++ with the following code: 
+For example, cartesian vectors are sets of two coordinates: x and y.
+The addition operation of two cartesian vectors is defined as the addition both x coordinates together, and both y coordinates together.
+For example, adding the cartesian vectors (3,1) and (5,2) together would result in (3+5,1+2) = (8,3). This could be implemented in C++ with the following code:
 */
 CVector::CVector(int a, int b) : x(a), y(b)
 {
@@ -102,5 +102,13 @@ CVector CVector::operator+(const CVector &param)
     CVector temp;
     temp.x = x + param.x;
     temp.y = y + param.y;
+    return temp;
+}
+
+CVector operator-(const CVector &lhs, const CVector &rhs)
+{
+    CVector temp;
+    temp.x = lhs.x - rhs.x;
+    temp.y = lhs.y - rhs.y;
     return temp;
 }
