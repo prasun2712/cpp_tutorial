@@ -37,8 +37,8 @@ double Circle::area()
 
 /*
 Member initialization in constructors
-When a constructor is used to initialize other members, these other members can be initialized directly, without resorting to statements in its body. 
-This is done by inserting, before the constructor's body, a colon (:) and a list of initializations for class members. 
+When a constructor is used to initialize other members, these other members can be initialized directly, without resorting to statements in its body.
+This is done by inserting, before the constructor's body, a colon (:) and a list of initializations for class members.
 For example, consider a class with the following declaration:
 
 class Rectangle {
@@ -60,17 +60,17 @@ Or even:
 
  - Rectangle::Rectangle (int x, int y) : width(x), height(y) { }
 
-For members of fundamental types, it makes no difference which of the ways above the constructor is defined, 
-because they are not initialized by default, but for member objects (those whose type is a class), 
+For members of fundamental types, it makes no difference which of the ways above the constructor is defined,
+because they are not initialized by default, but for member objects (those whose type is a class),
 if they are not initialized after the colon, they are default-constructed.
 
-Default-constructing all members of a class may or may always not be convenient: in some cases, 
-this is a waste (when the member is then reinitialized otherwise in the constructor), but in some other cases, 
-default-construction is not even possible (when the class does not have a default constructor). 
+Default-constructing all members of a class may or may always not be convenient: in some cases,
+this is a waste (when the member is then reinitialized otherwise in the constructor), but in some other cases,
+default-construction is not even possible (when the class does not have a default constructor).
 In these cases, members shall be initialized in the member initialization list.
 
-In this example, class Cylinder has a member object whose type is another class (base's type is Circle). 
-Because objects of class Circle can only be constructed with a parameter, 
+In this example, class Cylinder has a member object whose type is another class (base's type is Circle).
+Because objects of class Circle can only be constructed with a parameter,
 Cylinder's constructor needs to call base's constructor, and the only way to do this is in the member initializer list.
 */
 // Cylinder::Cylinder(double r, double h) : base(r), height(h)
@@ -81,4 +81,19 @@ Cylinder::Cylinder(double r, double h) : base{r}, height{h}
 double Cylinder::volume()
 {
     return base.area() * height;
+}
+
+/*
+Overloading operators
+*/
+CVector::CVector(int a, int b) : x(a), y(b)
+{
+}
+
+CVector CVector::operator+(const CVector &param)
+{
+    CVector temp;
+    temp.x = x + param.x;
+    temp.y = y + param.y;
+    return temp;
 }

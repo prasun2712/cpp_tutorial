@@ -48,4 +48,16 @@ public:
   double volume();
 };
 
+/*
+Overloading operators
+*/
+class CVector
+{
+public:
+  int x, y;
+  CVector() {};
+  CVector(int, int);
+  CVector operator+(const CVector &);
+};
+
 #endif
