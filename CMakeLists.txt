@@ -49,3 +49,7 @@ set(SOURCES src/05_class_example_03.cpp src/utils/class_helper.cpp)
 add_executable(05_class_example_03 ${SOURCES})
 target_include_directories(05_class_example_03 PUBLIC "include/class")
 
+set(SOURCES src/05_class_example_04.cpp src/utils/class_helper.cpp)
+add_executable(05_class_example_04 ${SOURCES})
+target_include_directories(05_class_example_04 PUBLIC "include/class")
+
