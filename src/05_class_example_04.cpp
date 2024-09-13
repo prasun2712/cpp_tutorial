@@ -5,7 +5,24 @@ class Dummy
 {
 public:
     bool isitme(Dummy &param);
+    /*
+    A static data member (either data or functions) of a class is also known as a "class variable", 
+    because there is only one common variable for all the objects of that same class, 
+    sharing the same value: i.e., its value is not different from one object of this class to another.
+
+    Classes can also have static member functions. These represent the same: members of a class that are common to all object of that class, 
+    acting exactly as non-member functions but being accessed like members of the class. Because they are like non-member functions, 
+    they cannot access non-static members of the class (neither member variables nor member functions). They neither can use the keyword this.
+    */
+    static int n;
 };
+
+/*
+In fact, static members have the same properties as non-member variables but they enjoy class scope. 
+For that reason, and to avoid them to be declared several times, they cannot be initialized directly in the class, 
+but need to be initialized somewhere outside it.
+*/
+int Dummy::n=0;
 
 bool Dummy::isitme(Dummy &param)
 {
@@ -25,5 +42,14 @@ int main()
     Dummy *b = &a;
     if (b->isitme(a))
         cout << "yes, &a is b\n";
+
+    /*
+    Because it is a common variable value for all the objects of the same class, 
+    it can be referred to as a member of any object of that class or even directly by the class name
+    Both statements below are same.
+    */
+    cout << a.n << '\n';
+    cout << Dummy::n << '\n';
+    
     return 0;
 }
