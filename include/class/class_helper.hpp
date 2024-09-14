@@ -70,8 +70,8 @@ CVector operator-(const CVector &, const CVector &);
 
 /*
 Const member functions
-The access to its data members from outside the class is restricted to read-only, 
-as if all its data members were const for those accessing them from outside the class. 
+The access to its data members from outside the class is restricted to read-only,
+as if all its data members were const for those accessing them from outside the class.
 Note though, that the constructor is still called and is allowed to initialize and modify these data members:
 */
 class MyClass
@@ -79,39 +79,48 @@ class MyClass
 public:
   int x;
   MyClass(int val) : x(val) {}
-  
+
   int get();
   /*
-  The member functions of a const object can only be called if they are themselves specified as const members; in the example above, 
-  member get (which is not specified as const) cannot be called from foo. To specify that a member is a const member, 
+  The member functions of a const object can only be called if they are themselves specified as const members; in the example above,
+  member get (which is not specified as const) cannot be called from foo. To specify that a member is a const member,
   the const keyword shall follow the function prototype, after the closing parenthesis for its parameters:
 
-  Note that const can be used to qualify the type returned by a member function. This const is not the same as the one which specifies a member as const. 
+  Note that const can be used to qualify the type returned by a member function. This const is not the same as the one which specifies a member as const.
   Both are independent and are located at different places in the function prototype:
    - int get() const {return x;}        // const member function
    - const int& get() {return x;}       // member function returning a const&
-   - const int& get() const {return x;} // const member function returning a const& 
+   - const int& get() const {return x;} // const member function returning a const&
 
-  Member functions specified to be const cannot modify non-static data members nor call other non-const member functions. 
+  Member functions specified to be const cannot modify non-static data members nor call other non-const member functions.
   In essence, const members shall not modify the state of an object.
 
-  const objects are limited to access only member functions marked as const, but non-const objects are not restricted and thus can access 
+  const objects are limited to access only member functions marked as const, but non-const objects are not restricted and thus can access
   both const and non-const member functions alike.
   */
   // int get() const;
-  const int& get() const;
+  const int &get() const;
 };
 
-void print(const MyClass& arg);
+void print(const MyClass &arg);
 
 /*
 Template Function and Classes
 */
-template <class T> T sum (T a, T b)
+template <class T>
+T sum(T a, T b)
 {
   T result;
   result = a + b;
   return result;
+}
+
+// Templates are a powerful and versatile feature. They can have multiple template parameters, and the function can still use regular non-templated types.
+// For example:
+template <class T, class U>
+bool are_equal(T a, U b)
+{
+  return (a == b);
 }
 
 #endif
