@@ -145,3 +145,4 @@ void print(const MyClass &arg)
 {
     std::cout << arg.get() << '\n';
 }
+

@@ -104,4 +104,14 @@ public:
 
 void print(const MyClass& arg);
 
+/*
+Template Function and Classes
+*/
+template <class T> T sum (T a, T b)
+{
+  T result;
+  result = a + b;
+  return result;
+}
+
 #endif
