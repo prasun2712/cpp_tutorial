@@ -31,5 +31,9 @@ int main()
         cout << "x and y are equal\n";
     else
         cout << "x and y are not equal\n";
+
+    // Non-type template arguments
+    cout << fixed_multiply<int, 2>(10) << '\n';
+    cout << fixed_multiply<int, 3>(10) << '\n';
     return 0;
 }
