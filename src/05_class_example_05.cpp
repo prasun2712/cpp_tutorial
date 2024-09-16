@@ -37,9 +37,14 @@ int main()
     cout << fixed_multiply<int, 3>(10) << '\n';
 
     // Class template
-    mypair <int> myobject (100, 750);
+    mypair<int> myobject(100, 750);
     cout << "Max of two values in class is :" << myobject.getmax() << "\n";
 
+    // Class template specialization
+    mycontainer<int> myint(7);
+    mycontainer<char> mychar('j');
+    cout << myint.increase() << endl;
+    cout << mychar.uppercase() << endl;
 
     return 0;
 }
