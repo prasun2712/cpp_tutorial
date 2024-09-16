@@ -35,5 +35,11 @@ int main()
     // Non-type template arguments
     cout << fixed_multiply<int, 2>(10) << '\n';
     cout << fixed_multiply<int, 3>(10) << '\n';
+
+    // Class template
+    mypair <int> myobject (100, 750);
+    cout << "Max of two values in class is :" << myobject.getmax() << "\n";
+
+
     return 0;
 }

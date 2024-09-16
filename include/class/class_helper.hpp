@@ -123,18 +123,48 @@ bool are_equal(T a, U b)
   return (a == b);
 }
 
-// Non-type template arguments - The template parameters can not only include types introduced by class or typename, 
+// Non-type template arguments - The template parameters can not only include types introduced by class or typename,
 // but can also include expressions of a particular type:
-// The second argument of the fixed_multiply function template is of type int. It just looks like a regular function parameter, 
+// The second argument of the fixed_multiply function template is of type int. It just looks like a regular function parameter,
 // and can actually be used just like one.
-// But there exists a major difference: the value of template parameters is determined on compile-time to generate a different 
-// instantiation of the function fixed_multiply, and thus the value of that argument is never passed during runtime: 
-// The two calls to fixed_multiply in main essentially call two versions of the function: one that always multiplies by two, 
+// But there exists a major difference: the value of template parameters is determined on compile-time to generate a different
+// instantiation of the function fixed_multiply, and thus the value of that argument is never passed during runtime:
+// The two calls to fixed_multiply in main essentially call two versions of the function: one that always multiplies by two,
 // and one that always multiplies by three. For that same reason, the second template argument needs to be a constant expression (it cannot be passed a variable).
 template <class T, int N>
 T fixed_multiply(T val)
 {
   return val * N;
+}
+
+// Class template
+// The class that we have defined below serves to store two elements of any valid type. For example,
+// if we wanted to declare an object of this class to store two integer values of type int with the values 115 and 36 we would write:
+//  - mypair<int> myobject (115, 36);
+
+template <class T>
+class mypair
+{
+  T a, b;
+
+public:
+  mypair(T first, T second)
+  {
+    a = first;
+    b = second;
+  }
+  T getmax();
+};
+
+// Confused by so many T's? There are three T's in this declaration: The first one is the template parameter. 
+// The second T refers to the type returned by the function. And the third T (the one between angle brackets) is also a requirement:
+// It specifies that this function's template parameter is also the class template parameter.
+template <class T>
+T mypair<T>::getmax()
+{
+  T retval;
+  retval = a > b ? a : b;
+  return retval;
 }
 
 #endif
