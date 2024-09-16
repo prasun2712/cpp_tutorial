@@ -128,11 +128,11 @@ int MyClass::get()
 // }
 
 /*
-If in this example, get was not specified as a const member, the call to arg.get() in the print function would not be possible, 
+If in this example, get was not specified as a const member, the call to arg.get() in the print function would not be possible,
 because const objects only have access to const member functions.
 
-Member functions can be overloaded on their constness: i.e., a class may have two member functions with identical signatures except 
-that one is const and the other is not: in this case, the const version is called only when the object is itself const, 
+Member functions can be overloaded on their constness: i.e., a class may have two member functions with identical signatures except
+that one is const and the other is not: in this case, the const version is called only when the object is itself const,
 and the non-const version is called when the object is itself non-const.
 */
 const int &MyClass::get() const
@@ -146,3 +146,10 @@ void print(const MyClass &arg)
     std::cout << arg.get() << '\n';
 }
 
+/*
+Default constructor.
+*/
+const std::string &Example3::content() const
+{
+    return data;
+}

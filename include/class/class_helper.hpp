@@ -191,11 +191,11 @@ public:
 //--------------------------------
 // This is the syntax used for the class template specialization:
 //  - template <> class mycontainer <char> { ... };
-// First of all, notice that we precede the class name with template<> , including an empty parameter list. 
-// This is because all types are known and no template arguments are required for this specialization, but still, 
+// First of all, notice that we precede the class name with template<> , including an empty parameter list.
+// This is because all types are known and no template arguments are required for this specialization, but still,
 // it is the specialization of a class template, and thus it requires to be noted as such.
 
-// But more important than this prefix, is the <char> specialization parameter after the class template name. 
+// But more important than this prefix, is the <char> specialization parameter after the class template name.
 // This specialization parameter itself identifies the type for which the template class is being specialized (char).
 
 // Notice the differences between the generic class template and the specialization:
@@ -203,7 +203,7 @@ public:
 //  - template <> class mycontainer <char> { ... };
 // The first line is the generic template, and the second one is the specialization.
 
-// When we declare specializations for a template class, we must also define all its members, even those identical to the generic template class, 
+// When we declare specializations for a template class, we must also define all its members, even those identical to the generic template class,
 // because there is no "inheritance" of members from the generic template to the specialization.
 
 template <>
@@ -219,6 +219,23 @@ public:
       element += 'A' - 'a';
     return element;
   }
+};
+
+/*
+Default constructor
+===================
+The default constructor is the constructor called when objects of a class are declared, but are not initialized with any arguments.
+When any constructor is explicitly declared in a class, no implicit default constructors is automatically provided.
+*/
+
+class Example3
+{
+  std::string data;
+
+public:
+  Example3(const std::string &str) : data(str) {};
+  Example3() {};
+  const std::string &content() const;
 };
 
 #endif
