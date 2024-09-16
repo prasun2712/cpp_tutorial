@@ -233,8 +233,34 @@ class Example3
   std::string data;
 
 public:
-  Example3(const std::string &str) : data(str) {};
-  Example3() {};
+  Example3(const std::string &str);
+  Example3();
+  const std::string &content() const;
+};
+
+/*
+Destructor
+==========
+Destructors fulfill the opposite functionality of constructors: They are responsible for the necessary cleanup needed by a class when its lifetime ends.
+The classes we have defined in previous chapters did not allocate any resource and thus did not really require any clean up.
+
+But now, let's imagine that the class in the last example allocates dynamic memory to store the string it had as data member;
+in this case, it would be very useful to have a function called automatically at the end of the object's life in charge of releasing this memory.
+To do this, we use a destructor. A destructor is a member function very similar to a default constructor: it takes no arguments and returns nothing,
+not even void. It also uses the class name as its own name, but preceded with a tilde sign (~):
+*/
+
+class Example4
+{
+  std::string *ptr;
+
+public:
+  // constructors:
+  Example4();
+  Example4(const std::string &str);
+  // destructor:
+  ~Example4();
+  // access content:
   const std::string &content() const;
 };
 

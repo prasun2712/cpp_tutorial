@@ -149,7 +149,37 @@ void print(const MyClass &arg)
 /*
 Default constructor.
 */
+Example3::Example3(const std::string &str) : data(str)
+{
+}
+Example3::Example3()
+{
+}
 const std::string &Example3::content() const
 {
     return data;
+}
+
+/*
+Destructor.
+*/
+Example4::Example4() : ptr(new std::string)
+{
+    std::cout << "Example4 : Default constructor called. \n";
+}
+
+Example4::Example4(const std::string &str) : ptr(new std::string(str))
+{
+    std::cout << "Example4 : Constructor called. \n";
+}
+
+Example4::~Example4()
+{
+    delete ptr;
+    std::cout << "Example4 : Destructor called. \n";
+}
+
+const std::string &Example4::content() const
+{
+    return *ptr;
 }
