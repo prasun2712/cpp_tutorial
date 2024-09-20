@@ -187,6 +187,11 @@ const std::string &Example4::content() const
 /*
 Copy constructor.
 */
+Example5::Example5() : ptr(new std::string)
+{
+    std::cout << "Example5 : Default constructor called. \n";
+}
+
 Example5::Example5(const std::string &str) : ptr(new std::string(str))
 {
     std::cout << "Example5 : Constructor called. \n";
@@ -194,6 +199,7 @@ Example5::Example5(const std::string &str) : ptr(new std::string(str))
 
 Example5::~Example5()
 {
+    std::cout << "Example5 : Destructor called. \n";
     delete ptr;
 }
 
@@ -205,4 +211,15 @@ Example5::Example5(const Example5 &x) : ptr(new std::string(x.content()))
 const std::string &Example5::content() const
 {
     return *ptr;
+}
+
+Example5 &Example5::operator=(const Example5 &x)
+{
+    std::cout << "Copy assignment called for the object of class Example5. \n";
+    delete ptr;                         // delete currently pointed string
+    ptr = new std::string(x.content()); // allocate space for new string, and copy
+    return *this;
+    // Or
+    // *ptr = x.content();
+    // return *this;
 }
