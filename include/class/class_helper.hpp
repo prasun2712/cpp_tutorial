@@ -257,7 +257,7 @@ class Example4
 public:
   // constructors:
   Example4();
-  Example4(const std::string &str);
+  Example4(const std::string &);
   // destructor:
   ~Example4();
   // access content:
@@ -298,7 +298,7 @@ class Example5
 public:
   std::string *ptr;
   Example5();
-  Example5(const std::string &str);
+  Example5(const std::string &);
   ~Example5();
   // copy constructor:
   Example5(const Example5 &);
@@ -306,6 +306,67 @@ public:
   const std::string &content() const;
   // copy assignment: As soon as you comment the overloaded operator=, because of shallow copy, Segmentation fault (core dumped) is received.
   Example5 &operator=(const Example5 &);
+};
+
+/*
+Move constructor and assignment.
+=================================
+Similar to copying, moving also uses the value of an object to set the value to another object. But, unlike copying,
+the content is actually transferred from one object (the source) to the other (the destination):
+the source loses that content, which is taken over by the destination. This moving only happens when the source of the value is an unnamed object.
+
+Unnamed objects are objects that are temporary in nature, and thus haven't even been given a name.
+Typical examples of unnamed objects are return values of functions or type-casts.
+
+Using the value of a temporary object such as these to initialize another object or to assign its value, does not really require a copy:
+the object is never going to be used for anything else, and thus, its value can be moved into the destination object.
+These cases trigger the move constructor and move assignments:
+
+The move constructor is called when an object is initialized on construction using an unnamed temporary.
+Likewise, the move assignment is called when an object is assigned the value of an unnamed temporary:
+ - MyClass fn();            // function returning a MyClass object
+ - MyClass foo;             // default constructor
+ - MyClass bar = foo;       // copy constructor
+ - MyClass baz = fn();      // move constructor
+ - foo = bar;               // copy assignment
+ - baz = MyClass();         // move assignment
+Both the value returned by fn and the value constructed with MyClass are unnamed temporaries. In these cases, there is no need to make a copy,
+because the unnamed object is very short-lived and can be acquired by the other object when this is a more efficient operation.
+
+The move constructor and move assignment are members that take a parameter of type rvalue reference to the class itself:
+ - MyClass (MyClass&&);             // move-constructor
+ - MyClass& operator= (MyClass&&);  // move-assignment
+
+An rvalue reference is specified by following the type with two ampersands (&&). As a parameter,
+an rvalue reference matches arguments of temporaries of this type.
+
+The concept of moving is most useful for objects that manage the storage they use, such as objects that allocate storage with new and delete.
+In such objects, copying and moving are really different operations:
+    - Copying from A to B means that new memory is allocated to B and then the entire content of A is copied to this new memory allocated for B.
+    - Moving from A to B means that the memory already allocated to A is transferred to B without allocating any new storage.
+      It involves simply copying the pointer.
+
+Compilers already optimize many cases that formally require a move-construction call in what is known as Return Value Optimization. 
+Most notably, when the value returned by a function is used to initialize an object. In these cases, the move constructor may actually never get called.
+
+Note that even though rvalue references can be used for the type of any function parameter, it is seldom useful for uses other than the move constructor. 
+Rvalue references are tricky, and unnecessary uses may be the source of errors quite difficult to track.
+*/
+class Example6
+{
+  std::string *ptr;
+
+public:
+  Example6(const std::string &str);
+  ~Example6();
+  // move constructor
+  Example6(Example6 &&);
+  // move assignment
+  Example6 &operator=(Example6 &&);
+  // access content:
+  const std::string &content() const;
+  // addition:
+  Example6 operator+(const Example6 &);
 };
 
 #endif

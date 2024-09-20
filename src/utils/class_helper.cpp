@@ -223,3 +223,44 @@ Example5 &Example5::operator=(const Example5 &x)
     // *ptr = x.content();
     // return *this;
 }
+
+/*
+Move constructor and assignment.
+*/
+Example6::Example6(const std::string &str) : ptr(new std::string(str))
+{
+    std::cout << "Example6 : Constructor called. \n";
+}
+
+Example6::~Example6()
+{
+    std::cout << "Example6 : Destructor called. \n";
+    delete ptr;
+}
+
+Example6::Example6(Example6 &&x) : ptr(x.ptr)
+{
+    std::cout << "Example6 : Move constructor called. \n";
+    x.ptr = nullptr;
+}
+
+Example6 &Example6::operator=(Example6 &&x)
+{
+    std::cout << "Example6 : Move assignment called. \n";
+    delete ptr;
+    ptr = x.ptr;
+    x.ptr = nullptr;
+    return *this;
+}
+
+const std::string &Example6::content() const
+{
+    std::cout << "Example6 : Content accessed. \n";
+    return *ptr;
+}
+
+Example6 Example6::operator+(const Example6 &rhs)
+{
+    std::cout << "Example6 : Addition performed. \n";
+    return Example6(content() + rhs.content());
+}
