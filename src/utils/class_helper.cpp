@@ -183,3 +183,26 @@ const std::string &Example4::content() const
 {
     return *ptr;
 }
+
+/*
+Copy constructor.
+*/
+Example5::Example5(const std::string &str) : ptr(new std::string(str))
+{
+    std::cout << "Example5 : Constructor called. \n";
+}
+
+Example5::~Example5()
+{
+    delete ptr;
+}
+
+Example5::Example5(const Example5 &x) : ptr(new std::string(x.content()))
+{
+    std::cout << "Example5 : Custom copy constructor called. (Deep copy done.)\n";
+}
+
+const std::string &Example5::content() const
+{
+    return *ptr;
+}

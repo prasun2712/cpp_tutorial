@@ -264,4 +264,20 @@ public:
   const std::string &content() const;
 };
 
+/*
+Copy constructor.
+*/
+class Example5
+{
+  std::string *ptr;
+
+public:
+  Example5(const std::string &str);
+  ~Example5();
+  // copy constructor:
+  Example5(const Example5&);
+  // access content:
+  const std::string &content() const;
+};
+
 #endif
