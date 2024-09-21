@@ -346,10 +346,10 @@ In such objects, copying and moving are really different operations:
     - Moving from A to B means that the memory already allocated to A is transferred to B without allocating any new storage.
       It involves simply copying the pointer.
 
-Compilers already optimize many cases that formally require a move-construction call in what is known as Return Value Optimization. 
+Compilers already optimize many cases that formally require a move-construction call in what is known as Return Value Optimization.
 Most notably, when the value returned by a function is used to initialize an object. In these cases, the move constructor may actually never get called.
 
-Note that even though rvalue references can be used for the type of any function parameter, it is seldom useful for uses other than the move constructor. 
+Note that even though rvalue references can be used for the type of any function parameter, it is seldom useful for uses other than the move constructor.
 Rvalue references are tricky, and unnecessary uses may be the source of errors quite difficult to track.
 */
 class Example6
@@ -367,6 +367,40 @@ public:
   const std::string &content() const;
   // addition:
   Example6 operator+(const Example6 &);
+};
+
+/*
+Implicit members
+================
+The six special members functions described above are members implicitly declared on classes under certain circumstances:
+-------------------------------------------------------------------------------------------------------------------
+Member function	      implicitly defined:	                                                      default definition:
+-------------------------------------------------------------------------------------------------------------------
+Default constructor	  if no other constructors	                                                does nothing
+Destructor	          if no destructor	                                                        does nothing
+Copy constructor	    if no move constructor and no move assignment	                            copies all members
+Copy assignment	      if no move constructor and no move assignment	                            copies all members
+Move constructor	    if no destructor, no copy constructor and no copy nor move assignment	    moves all members
+Move assignment	      if no destructor, no copy constructor and no copy nor move assignment	    moves all members
+-------------------------------------------------------------------------------------------------------------------
+
+Notice how not all special member functions are implicitly defined in the same cases. This is mostly due to backwards compatibility with C structures and
+earlier C++ versions, and in fact some include deprecated cases. Fortunately, each class can select explicitly which of these members
+exist with their default definition or which are deleted by using the keywords default and delete, respectively.
+The syntax is either one of:
+ - function_declaration = default;
+ - function_declaration = delete;
+*/
+
+class Rect
+{
+  int width, height;
+
+public:
+  Rect(int, int);
+  Rect();
+  Rect(const Rect&);
+  int area();
 };
 
 #endif

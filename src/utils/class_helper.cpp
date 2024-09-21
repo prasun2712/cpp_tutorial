@@ -264,3 +264,22 @@ Example6 Example6::operator+(const Example6 &rhs)
     std::cout << "Example6 : Addition performed. \n";
     return Example6(content() + rhs.content());
 }
+
+/*
+Implicit members
+================
+*/
+
+Rect::Rect(int x, int y) : width(x), height(y)
+{
+    std::cout << "Rect class constructor called. \n";
+}
+
+Rect::Rect() = default;
+
+Rect::Rect(const Rect &other) = delete;
+
+int Rect::area()
+{
+    return width * height;
+}

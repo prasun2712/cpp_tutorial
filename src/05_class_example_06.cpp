@@ -69,12 +69,34 @@ int main()
     // *faz_5.ptr = "Sample";
     // cout << "baz's 5 content: " << baz_5.content() << '\n';
 
-    // Move constructor and assignment.
-    //=================================
-    Example6 foo_6("Exam");
-    Example6 bar_6 = Example6("ple"); // move-construction
-    foo_6 = foo_6 + bar_6; // move-assignment
-    cout << "foo's content: " << foo_6.content() << '\n';
+    // // Move constructor and assignment.
+    // //=================================
+    // Example6 foo_6("Exam");
+    // Example6 bar_6 = Example6("ple"); // move-construction
+    // // Example6 bar_6(Example6("ple"));  // move-construction
+    // foo_6 = foo_6 + bar_6; // move-assignment
+    // cout << "foo's content: " << foo_6.content() << '\n';
+
+    // Implicit members.
+    //==================
+    Rect foo_7;
+    Rect bar_7(10, 20);
+    /*
+    Here, Rectangle can be constructed either with two int arguments or be default-constructed (with no arguments).
+    It cannot however be copy-constructed from another Rectangle object, because this function has been deleted.
+    Therefore, assuming the objects of the last example, the following statement would not be valid:
+     - Rect baz_7(bar_7);
+    It could, however, be made explicitly valid by defining its copy constructor as:
+     - Rect::Rect (const Rect& other) = default;
+    Which would be essentially equivalent to:
+     - Rect::Rect (const Rect& other) : width(other.width), height(other.height) {}
+    Note that, the keyword default does not define a member function equal to the default constructor (i.e., where default constructor means 
+    constructor with no parameters), but equal to the constructor that would be implicitly defined if not deleted.
+
+    In general, and for future compatibility, classes that explicitly define one copy/move constructor or one copy/move assignment but not both, 
+    are encouraged to specify either delete or default on the other special member functions they don't explicitly define.
+    */
+    cout << "bar_7's area: " << bar_7.area() << '\n';
 
     return 0;
 }
