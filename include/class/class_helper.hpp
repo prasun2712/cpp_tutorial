@@ -409,19 +409,19 @@ public:
 /*
 Friend functions
 ----------------
-In principle, private and protected members of a class cannot be accessed from outside the same class in which they are declared. 
+In principle, private and protected members of a class cannot be accessed from outside the same class in which they are declared.
 However, this rule does not apply to "friends".
 
 Friends are functions or classes declared with the friend keyword.
 
-A non-member function can access the private and protected members of a class if it is declared a friend of that class. 
+A non-member function can access the private and protected members of a class if it is declared a friend of that class.
 That is done by including a declaration of this external function within the class, and preceding it with the keyword friend:
 
-The duplicate function is a friend of class Rectangle. Therefore, function duplicate is able to access the members width and height 
-(which are private) of different objects of type Rectangle. Notice though that neither in the declaration of duplicate nor in its later use in main, 
+The duplicate function is a friend of class Rectangle. Therefore, function duplicate is able to access the members width and height
+(which are private) of different objects of type Rectangle. Notice though that neither in the declaration of duplicate nor in its later use in main,
 function duplicate is considered a member of class Rectangle. It isn't! It simply has access to its private and protected members without being a member.
 
-Typical use cases of friend functions are operations that are conducted between two different classes accessing private or protected members of both. 
+Typical use cases of friend functions are operations that are conducted between two different classes accessing private or protected members of both.
 */
 
 class FriendRectangle
@@ -430,9 +430,52 @@ class FriendRectangle
 
 public:
   FriendRectangle();
-  FriendRectangle(int , int);
+  FriendRectangle(int, int);
   int area();
   friend FriendRectangle duplicate(const FriendRectangle &);
+};
+
+/*
+Friend classes
+--------------
+Similar to friend functions, a friend class is a class whose members have access to the private or protected members of another class:
+
+In this example, class FriendClassRectangle is a friend of class FriendClassSquare allowing FriendClassRectangle's member functions to access private and 
+protected members of class FriendClassSquare. More concretely, FriendClassRectangle accesses the member variable FriendClassSquare::side, 
+which describes the side of the square.
+
+There is something else new in this example: at the beginning of the program, there is an empty declaration of FriendClassSquare.
+This is necessary because class FriendClassRectangle uses FriendClassSquare (as a parameter in member convert), 
+and FriendClassSquare uses FriendClassRectangle (declaring it a friend).
+
+Friendships are never corresponded unless specified: In our example, FriendClassRectangle is considered a friend class by FriendClassSquare,
+but FriendClassSquare is not considered a friend by FriendClassRectangle. Therefore, the member functions of FriendClassRectangle can access 
+the protected and private members of FriendClassSquare but not the other way around. 
+Of course, FriendClassSquare could also be declared friend of FriendClassRectangle, if needed, granting such an access.
+
+Another property of friendships is that they are not transitive: The friend of a friend is not considered a friend unless explicitly specified.
+*/
+
+class FriendClassSquare;
+
+class FriendClassRectangle
+{
+  int width, height;
+
+public:
+  int area();
+  void convert(FriendClassSquare);
+};
+
+class FriendClassSquare
+{
+  friend class FriendClassRectangle;
+
+private:
+  int side;
+
+public:
+  FriendClassSquare(int a);
 };
 
 #endif

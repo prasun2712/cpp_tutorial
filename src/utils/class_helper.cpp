@@ -305,10 +305,32 @@ int FriendRectangle::area()
     return width * height;
 }
 
-FriendRectangle duplicate (const FriendRectangle& param)
+FriendRectangle duplicate(const FriendRectangle &param)
 {
-  FriendRectangle res;
-  res.width = param.width*2;
-  res.height = param.height*2;
-  return res;
+    FriendRectangle res;
+    res.width = param.width * 2;
+    res.height = param.height * 2;
+    return res;
+}
+
+/*
+Friend classes
+----------------
+*/
+int FriendClassRectangle::area()
+{
+    std::cout << "Area calculator for FriendClassRectangle called.\n";
+    return (width * height);
+}
+
+void FriendClassRectangle::convert(FriendClassSquare a)
+{
+    std::cout << "Square to rectangle converter FriendClassRectangle method called.\n";
+    width = a.side;
+    height = a.side;
+}
+
+FriendClassSquare::FriendClassSquare(int a) : side(a)
+{
+    std::cout << "Constructor for FriendClassSquare called.\n";
 }
