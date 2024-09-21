@@ -283,3 +283,32 @@ int Rect::area()
 {
     return width * height;
 }
+
+/*
+Friend functions
+----------------
+*/
+
+FriendRectangle::FriendRectangle()
+{
+    std::cout << "FriendRectangle class default constructor called.\n";
+}
+
+FriendRectangle::FriendRectangle(int x, int y) : width(x), height(y)
+{
+    std::cout << "FriendRectangle class constructor called.\n";
+}
+
+int FriendRectangle::area()
+{
+    std::cout << "Rectangle area calculator function called.\n";
+    return width * height;
+}
+
+FriendRectangle duplicate (const FriendRectangle& param)
+{
+  FriendRectangle res;
+  res.width = param.width*2;
+  res.height = param.height*2;
+  return res;
+}

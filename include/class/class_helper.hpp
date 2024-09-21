@@ -399,8 +399,40 @@ class Rect
 public:
   Rect(int, int);
   Rect();
-  Rect(const Rect&);
+  Rect(const Rect &);
   int area();
+};
+
+//============================
+// Friendship and inheritance
+//============================
+/*
+Friend functions
+----------------
+In principle, private and protected members of a class cannot be accessed from outside the same class in which they are declared. 
+However, this rule does not apply to "friends".
+
+Friends are functions or classes declared with the friend keyword.
+
+A non-member function can access the private and protected members of a class if it is declared a friend of that class. 
+That is done by including a declaration of this external function within the class, and preceding it with the keyword friend:
+
+The duplicate function is a friend of class Rectangle. Therefore, function duplicate is able to access the members width and height 
+(which are private) of different objects of type Rectangle. Notice though that neither in the declaration of duplicate nor in its later use in main, 
+function duplicate is considered a member of class Rectangle. It isn't! It simply has access to its private and protected members without being a member.
+
+Typical use cases of friend functions are operations that are conducted between two different classes accessing private or protected members of both. 
+*/
+
+class FriendRectangle
+{
+  int width, height;
+
+public:
+  FriendRectangle();
+  FriendRectangle(int , int);
+  int area();
+  friend FriendRectangle duplicate(const FriendRectangle &);
 };
 
 #endif
