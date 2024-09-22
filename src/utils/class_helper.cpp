@@ -354,3 +354,26 @@ double DerivedTriangle::area()
 {
     return width * height / 2;
 }
+
+/*
+Inheritance and base class constructor
+--------------------------------------
+*/
+Mother::Mother()
+{
+    std::cout << "Mother: no parameters\n";
+}
+Mother::Mother(int a)
+{
+    std::cout << "Mother: int parameter\n";
+}
+
+Daughter::Daughter(int a)
+{
+    std::cout << "Daughter: int parameter\n";
+}
+
+Son::Son(int a) : Mother(a)
+{
+    std::cout << "Son: int parameter\n";
+}

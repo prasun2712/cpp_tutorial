@@ -574,4 +574,42 @@ public:
   double area();
 };
 
+/*
+Inheritance and base class constructor
+--------------------------------------
+In principle, a publicly derived class inherits access to every member of a base class except:
+
+    its constructors and its destructor
+    its assignment operator members (operator=)
+    its friends
+    its private members
+
+Even though access to the constructors and destructor of the base class is not inherited as such,
+they are automatically called by the constructors and destructor of the derived class.
+
+Unless otherwise specified, the constructors of a derived class calls the default constructor of its base classes (i.e., the constructor taking no arguments).
+Calling a different constructor of a base class is possible, using the same syntax used to initialize member variables in the initialization list:
+
+ - derived_constructor_name (parameters) : base_constructor_name (parameters) {...}
+*/
+
+class Mother
+{
+public:
+  Mother();
+  Mother(int);
+};
+
+class Daughter : public Mother
+{
+public:
+  Daughter(int);
+};
+
+class Son : public Mother
+{
+public:
+  Son(int);
+};
+
 #endif
