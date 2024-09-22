@@ -556,10 +556,10 @@ they can usually be better represented as member variables instead.
 class BasePolygon
 {
 protected:
-  int width, height;
+  double width, height;
 
 public:
-  void set_values(int, int);
+  void set_values(double, double);
 };
 
 class DerivedRectangle : public BasePolygon

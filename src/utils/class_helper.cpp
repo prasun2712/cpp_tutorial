@@ -339,7 +339,7 @@ FriendClassSquare::FriendClassSquare(int a) : side(a)
 Inheritance between classes
 ---------------------------
 */
-void BasePolygon::set_values(int a, int b)
+void BasePolygon::set_values(double a, double b)
 {
     width = a;
     height = b;
