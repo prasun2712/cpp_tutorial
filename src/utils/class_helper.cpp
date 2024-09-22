@@ -377,3 +377,38 @@ Son::Son(int a) : Mother(a)
 {
     std::cout << "Son: int parameter\n";
 }
+
+/*
+Multiple Inheritance
+--------------------
+*/
+
+MultipleInheritancePolygon::MultipleInheritancePolygon(double a, double b) : width(a), height(b)
+{
+    std::cout << "MultipleInheritancePolygon constructor called.\n";
+}
+
+void MultipleInheritanceOutput::print(double i)
+{
+    std::cout << "Received value " << i << " for printing." << '\n';
+}
+
+MultipleInheritanceRectangle::MultipleInheritanceRectangle(double a, double b) : MultipleInheritancePolygon(a, b)
+{
+    std::cout << "MultipleInheritanceRectangle constructor called with params " << a << " and " << b << ".\n";
+}
+
+double MultipleInheritanceRectangle::area()
+{
+    return width * height;
+}
+
+MultipleInheritanceTriangle::MultipleInheritanceTriangle(double a, double b) : MultipleInheritancePolygon(a, b)
+{
+    std::cout << "MultipleInheritanceTriangle constructor called with params " << a << " and " << b << ".\n";
+}
+
+double MultipleInheritanceTriangle::area()
+{
+    return width * height / 2;
+}

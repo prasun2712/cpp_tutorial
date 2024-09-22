@@ -33,12 +33,21 @@ int main()
     // std::cout << "Rectangle area : " << rec.area() << '\n';
     // std::cout << "Triangle area : " << trgl.area() << '\n';
 
+    // /*
+    // Inheritance and base class constructor
+    // --------------------------------------
+    // */
+    // Daughter kelly(0);
+    // Son bud(0);
+
     /*
-    Inheritance and base class constructor
-    --------------------------------------
+    Multiple Inheritance
+    --------------------
     */
-    Daughter kelly(0);
-    Son bud(0);
+    MultipleInheritanceRectangle recta(4.5, 5);
+    MultipleInheritanceTriangle trgle(4.5, 5);
+    recta.print(recta.area());
+    MultipleInheritanceTriangle::print(trgle.area());
 
     return 0;
 }

@@ -592,7 +592,6 @@ Calling a different constructor of a base class is possible, using the same synt
 
  - derived_constructor_name (parameters) : base_constructor_name (parameters) {...}
 */
-
 class Mother
 {
 public:
@@ -610,6 +609,44 @@ class Son : public Mother
 {
 public:
   Son(int);
+};
+
+/*
+Multiple Inheritance
+--------------------
+A class may inherit from more than one class by simply specifying more base classes, separated by commas,
+in the list of a class's base classes (i.e., after the colon). For example, if the program had a specific class to print on screen called Output,
+and we wanted our classes Rectangle and Triangle to also inherit its members in addition to those of Polygon we could write:
+ - class Rectangle: public Polygon, public Output;
+ - class Triangle: public Polygon, public Output;
+*/
+class MultipleInheritancePolygon
+{
+protected:
+  double width, height;
+
+public:
+  MultipleInheritancePolygon(double, double);
+};
+
+class MultipleInheritanceOutput
+{
+public:
+  static void print(double);
+};
+
+class MultipleInheritanceRectangle : public MultipleInheritancePolygon, public MultipleInheritanceOutput
+{
+public:
+  MultipleInheritanceRectangle(double, double);
+  double area();
+};
+
+class MultipleInheritanceTriangle : public MultipleInheritancePolygon, public MultipleInheritanceOutput
+{
+public:
+  MultipleInheritanceTriangle(double, double);
+  double area();
 };
 
 #endif
