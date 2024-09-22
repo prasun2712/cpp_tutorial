@@ -22,5 +22,16 @@ int main()
     rect.convert(sqr);
     std::cout << rect.area() << std::endl;
 
+    /*
+    Inheritance between classes
+    ---------------------------
+    */
+    DerivedRectangle rec;
+    DerivedTriangle trgl;
+    rec.set_values(4, 5);
+    trgl.set_values(4, 5);
+    std::cout << "Rectangle area : " << rec.area() << '\n';
+    std::cout << "Triangle area : " << trgl.area() << '\n';
+
     return 0;
 }

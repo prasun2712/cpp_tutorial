@@ -334,3 +334,23 @@ FriendClassSquare::FriendClassSquare(int a) : side(a)
 {
     std::cout << "Constructor for FriendClassSquare called.\n";
 }
+
+/*
+Inheritance between classes
+---------------------------
+*/
+void BasePolygon::set_values(int a, int b)
+{
+    width = a;
+    height = b;
+}
+
+double DerivedRectangle::area()
+{
+    return width * height;
+}
+
+double DerivedTriangle::area()
+{
+    return width * height / 2;
+}
