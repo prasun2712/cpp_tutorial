@@ -167,5 +167,22 @@ int main()
     a2_ppoly2->printarea();
     std::cout << "===\n\n";
 
+    /*
+    Abstract Base Classes - 3
+    -------------------------
+    */
+    std::cout << "===\n";
+    std::cout << "Polymorphism -  Abstract classes (Base class accessing virtual members of derived class using this pointer and using concepts such as dynamic memory, constructor initializers, etc).\n";
+    std::cout << "---\n";
+    // Notice that the a3_ppoly pointers:
+    // are declared being of type "pointer to Polygon", but the objects allocated have been declared having the derived class type directly (Rectangle and Triangle).
+    AbstractPolygon3 *a3_ppoly1 = new AbstractRectangle3(4.1, 5.1);
+    AbstractPolygon3 *a3_ppoly2 = new AbstractTriangle3(4.2, 5.2);
+    a3_ppoly1->printarea();
+    a3_ppoly2->printarea();
+    delete a3_ppoly1;
+    delete a3_ppoly2;
+    std::cout << "===\n\n";
+
     return 0;
 }

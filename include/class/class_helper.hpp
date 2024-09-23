@@ -782,4 +782,38 @@ public:
   double area(void);
 };
 
+/*
+Abstract Base Classes - 3
+-------------------------
+Virtual members and abstract classes grant C++ polymorphic characteristics, most useful for object-oriented projects.
+Of course, the examples above are very simple use cases, but these features can be applied to arrays of objects or dynamically allocated objects.
+
+Here is an example that combines some of the features in the latest chapters, such as dynamic memory, constructor initializers and polymorphism:
+*/
+
+class AbstractPolygon3
+{
+protected:
+  double width, height;
+
+public:
+  AbstractPolygon3(double, double);
+  virtual double area(void) = 0;
+  void printarea();
+};
+
+class AbstractRectangle3 : public AbstractPolygon3
+{
+public:
+  AbstractRectangle3(double, double);
+  double area();
+};
+
+class AbstractTriangle3 : public AbstractPolygon3
+{
+public:
+  AbstractTriangle3(double, double);
+  double area();
+};
+
 #endif

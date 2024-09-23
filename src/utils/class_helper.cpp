@@ -484,3 +484,34 @@ double AbstractTriangle2::area(void)
 {
     return (width * height) / 2;
 }
+
+/*
+Abstract Base Classes - 3
+-------------------------
+*/
+AbstractPolygon3::AbstractPolygon3(double a, double b) : width(a), height(b)
+{
+}
+
+void AbstractPolygon3::printarea()
+{
+    std::cout << this->area() << '\n';
+}
+
+AbstractRectangle3::AbstractRectangle3(double a, double b) : AbstractPolygon3(a, b)
+{
+}
+
+double AbstractRectangle3::area()
+{
+    return width * height;
+}
+
+AbstractTriangle3::AbstractTriangle3(double a, double b) : AbstractPolygon3(a, b)
+{
+}
+
+double AbstractTriangle3::area()
+{
+    return (width * height)/2;
+}
