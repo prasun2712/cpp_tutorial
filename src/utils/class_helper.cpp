@@ -412,3 +412,28 @@ double MultipleInheritanceTriangle::area()
 {
     return width * height / 2;
 }
+
+/*
+Virtual Members
+---------------
+*/
+void VirtualPolygon::set_values(double a, double b)
+{
+    width = a;
+    height = b;
+}
+
+double VirtualPolygon::area()
+{
+    return 0;
+}
+
+double VirtualRectangle::area()
+{
+    return width * height;
+}
+
+double VirtualTriangle::area()
+{
+    return (width * height) / 2;
+}

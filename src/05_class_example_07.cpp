@@ -101,10 +101,34 @@ int main()
     DerivedTriangle d_trgl;
     BasePolygon *ppoly1 = &d_rect;
     BasePolygon *ppoly2 = &d_trgl;
+    // BasePolygon *ppoly1, *ppoly2;
+    // ppoly1 = &d_rect;
+    // ppoly2 = &d_trgl;
     ppoly1->set_values(4.2, 5.1);
     ppoly2->set_values(4.4, 5.3);
     std::cout << d_rect.area() << '\n';
     std::cout << d_trgl.area() << '\n';
+    std::cout << "===\n\n";
+
+    /*
+    Virtual Members
+    ---------------
+    */
+    std::cout << "===\n";
+    std::cout << "Polymorphism -  Virtual members.\n";
+    std::cout << "---\n";
+    VirtualRectangle v_rect;
+    VirtualTriangle v_trgl;
+    VirtualPolygon v_poly;
+    VirtualPolygon *v_ppoly1 = &v_rect;
+    VirtualPolygon *v_ppoly2 = &v_trgl;
+    VirtualPolygon *v_ppoly3 = &v_poly;
+    v_ppoly1->set_values(4, 5);
+    v_ppoly2->set_values(4, 5);
+    v_ppoly3->set_values(4, 5);
+    std::cout << v_ppoly1->area() << '\n';
+    std::cout << v_ppoly2->area() << '\n';
+    std::cout << v_ppoly3->area() << '\n';
     std::cout << "===\n\n";
 
     return 0;
