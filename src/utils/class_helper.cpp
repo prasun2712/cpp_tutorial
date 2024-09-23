@@ -437,3 +437,24 @@ double VirtualTriangle::area()
 {
     return (width * height) / 2;
 }
+
+/*
+Abstract Classes
+----------------
+*/
+
+void AbstractPolygon::set_values(double a, double b)
+{
+    width = a;
+    height = b;
+}
+
+double AbstractRectangle::area(void)
+{
+    return (width * height);
+}
+
+double AbstractTriangle::area(void)
+{
+    return (width * height) / 2;
+}

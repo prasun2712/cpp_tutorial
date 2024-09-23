@@ -131,5 +131,24 @@ int main()
     std::cout << v_ppoly3->area() << '\n';
     std::cout << "===\n\n";
 
+    /*
+    Abstract Classes
+    ----------------
+    */
+    std::cout << "===\n";
+    std::cout << "Polymorphism -  Abstract classes.\n";
+    std::cout << "---\n";
+    AbstractRectangle a_rect;
+    AbstractTriangle a_trgl;
+    // Not allowed for abstract classes.
+    // AbstractPolygon a_poly;
+    AbstractPolygon *a_ppoly1 = &a_rect;
+    AbstractPolygon *a_ppoly2 = &a_trgl;
+    a_ppoly1->set_values(4, 5);
+    a_ppoly2->set_values(4, 5);
+    std::cout << a_ppoly1->area() << '\n';
+    std::cout << a_ppoly2->area() << '\n';
+    std::cout << "===\n\n";
+
     return 0;
 }

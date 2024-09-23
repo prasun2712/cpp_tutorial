@@ -694,4 +694,60 @@ public:
   double area();
 };
 
+/*
+Abstract Base Classes
+---------------------
+Abstract base classes are something very similar to the Polygon class in the previous example. They are classes that can only be used as base classes,
+and thus are allowed to have virtual member functions without definition (known as pure virtual functions).
+The syntax is to replace their definition by =0 (an equal sign and a zero):
+
+An abstract base Polygon class could look like this:
+ - // abstract class CPolygon
+ - class Polygon {
+ -   protected:
+ -     int width, height;
+ -   public:
+ -     void set_values (int a, int b)
+ -       { width=a; height=b; }
+ -     virtual int area () =0;
+ - };
+
+Notice that area has no definition; this has been replaced by =0, which makes it a pure virtual function.
+Classes that contain at least one pure virtual function are known as abstract base classes.
+
+Abstract base classes cannot be used to instantiate objects. Therefore, this last abstract base class version of Polygon
+could not be used to declare objects like:
+ - Polygon mypolygon;   // not working if Polygon is abstract base class
+
+But an abstract base class is not totally useless. It can be used to create pointers to it, and take advantage of all its polymorphic abilities.
+For example, the following pointer declarations would be valid:
+ - Polygon * ppoly1;
+ - Polygon * ppoly2;
+
+And can actually be dereferenced when pointing to objects of derived (non-abstract) classes.
+
+*/
+
+class AbstractPolygon
+{
+protected:
+  double width, height;
+
+public:
+  void set_values(double, double);
+  virtual double area(void) = 0;
+};
+
+class AbstractRectangle : public AbstractPolygon
+{
+public:
+  double area(void);
+};
+
+class AbstractTriangle : public AbstractPolygon
+{
+public:
+  double area(void);
+};
+
 #endif
