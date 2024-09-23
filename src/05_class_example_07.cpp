@@ -132,8 +132,8 @@ int main()
     std::cout << "===\n\n";
 
     /*
-    Abstract Classes
-    ----------------
+    Abstract Classes - 1
+    --------------------
     */
     std::cout << "===\n";
     std::cout << "Polymorphism -  Abstract classes.\n";
@@ -148,6 +148,23 @@ int main()
     a_ppoly2->set_values(4, 5);
     std::cout << a_ppoly1->area() << '\n';
     std::cout << a_ppoly2->area() << '\n';
+    std::cout << "===\n\n";
+
+    /*
+    Abstract Base Classes - 2
+    -------------------------
+    */
+    std::cout << "===\n";
+    std::cout << "Polymorphism -  Abstract classes (Base class accessing virtual members of derived class using this pointer).\n";
+    std::cout << "---\n";
+    AbstractRectangle2 a2_rect;
+    AbstractTriangle2 a2_trgl;
+    AbstractPolygon2 *a2_ppoly1 = &a2_rect;
+    AbstractPolygon2 *a2_ppoly2 = &a2_trgl;
+    a2_ppoly1->set_values(4, 5);
+    a2_ppoly2->set_values(4, 5);
+    a2_ppoly1->printarea();
+    a2_ppoly2->printarea();
     std::cout << "===\n\n";
 
     return 0;

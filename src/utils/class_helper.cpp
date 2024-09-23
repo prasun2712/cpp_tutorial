@@ -439,8 +439,8 @@ double VirtualTriangle::area()
 }
 
 /*
-Abstract Classes
-----------------
+Abstract Classes - 1
+--------------------
 */
 
 void AbstractPolygon::set_values(double a, double b)
@@ -455,6 +455,32 @@ double AbstractRectangle::area(void)
 }
 
 double AbstractTriangle::area(void)
+{
+    return (width * height) / 2;
+}
+
+/*
+Abstract Base Classes - 2
+-------------------------
+*/
+
+void AbstractPolygon2::set_values(double a, double b)
+{
+    width = a;
+    height = b;
+}
+
+void AbstractPolygon2::printarea()
+{
+    std::cout << this->area() << '\n';
+}
+
+double AbstractRectangle2::area(void)
+{
+    return (width * height);
+}
+
+double AbstractTriangle2::area(void)
 {
     return (width * height) / 2;
 }

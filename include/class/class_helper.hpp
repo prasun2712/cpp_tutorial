@@ -695,8 +695,8 @@ public:
 };
 
 /*
-Abstract Base Classes
----------------------
+Abstract Base Classes - 1
+-------------------------
 Abstract base classes are something very similar to the Polygon class in the previous example. They are classes that can only be used as base classes,
 and thus are allowed to have virtual member functions without definition (known as pure virtual functions).
 The syntax is to replace their definition by =0 (an equal sign and a zero):
@@ -745,6 +745,38 @@ public:
 };
 
 class AbstractTriangle : public AbstractPolygon
+{
+public:
+  double area(void);
+};
+
+/*
+Abstract Base Classes - 2
+-------------------------
+In the example above, objects of different but related types are referred to using a unique type of pointer (Polygon*) and
+the proper member function is called every time, just because they are virtual. This can be really useful in some circumstances.
+For example, it is even possible for a member of the abstract base class Polygon to use the special pointer this to access the proper virtual members,
+even though Polygon itself has no implementation for this function:
+*/
+
+class AbstractPolygon2
+{
+protected:
+  double width, height;
+
+public:
+  void set_values(double, double);
+  virtual double area() = 0;
+  void printarea();
+};
+
+class AbstractRectangle2 : public AbstractPolygon2
+{
+public:
+  double area(void);
+};
+
+class AbstractTriangle2 : public AbstractPolygon2
 {
 public:
   double area(void);
