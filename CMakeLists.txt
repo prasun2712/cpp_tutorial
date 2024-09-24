@@ -64,3 +64,6 @@ target_include_directories(05_class_example_06 PUBLIC "include/class")
 set(SOURCES src/05_class_example_07.cpp src/utils/class_helper.cpp)
 add_executable(05_class_example_07 ${SOURCES})
 target_include_directories(05_class_example_07 PUBLIC "include/class")
+
+set(SOURCES src/06_type_conversions.cpp)
+add_executable(06_type_conversions ${SOURCES})
