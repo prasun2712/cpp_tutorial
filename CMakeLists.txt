@@ -70,3 +70,6 @@ add_executable(06_type_conversions_01 ${SOURCES})
 
 set(SOURCES src/06_type_conversions_02.cpp)
 add_executable(06_type_conversions_02 ${SOURCES})
+
+set(SOURCES src/06_type_conversions_03.cpp)
+add_executable(06_type_conversions_03 ${SOURCES})
