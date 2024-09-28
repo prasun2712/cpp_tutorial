@@ -88,3 +88,6 @@ add_executable(07_exception_handling_01 ${SOURCES})
 
 set(SOURCES src/07_exception_handling_02.cpp)
 add_executable(07_exception_handling_02 ${SOURCES})
+
+set(SOURCES src/07_exception_handling_03.cpp)
+add_executable(07_exception_handling_03 ${SOURCES})
