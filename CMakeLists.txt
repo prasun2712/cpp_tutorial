@@ -82,3 +82,6 @@ add_executable(06_type_conversions_05 ${SOURCES})
 
 set(SOURCES src/06_type_conversions_06.cpp)
 add_executable(06_type_conversions_06 ${SOURCES})
+
+set(SOURCES src/07_exception_handling.cpp)
+add_executable(07_exception_handling ${SOURCES})
