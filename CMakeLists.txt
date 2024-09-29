@@ -94,3 +94,7 @@ add_executable(07_exception_handling_03 ${SOURCES})
 
 set(SOURCES src/08_preprocessor_directives_01.cpp)
 add_executable(08_preprocessor_directives_01 ${SOURCES})
+
+set(SOURCES src/08_preprocessor_directives_02.cpp)
+add_executable(08_preprocessor_directives_02 ${SOURCES})
+
