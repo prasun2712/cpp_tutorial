@@ -98,3 +98,7 @@ add_executable(08_preprocessor_directives_01 ${SOURCES})
 set(SOURCES src/08_preprocessor_directives_02.cpp)
 add_executable(08_preprocessor_directives_02 ${SOURCES})
 
+# Commented intentionally to avoid error in preprocessor directive example. Uncomment to learn more.
+# set(SOURCES src/08_preprocessor_directives_03.cpp)
+# add_executable(08_preprocessor_directives_03 ${SOURCES})
+
