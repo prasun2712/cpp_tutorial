@@ -33,6 +33,33 @@ This directive aborts the compilation process when it is found, generating a com
 This example aborts the compilation process if the macro name __cplusplus is not defined (this macro name is defined by default in all C++ compilers).
 */
 
+/*
+Source file inclusion (#include)
+================================
+This directive has been used assiduously in other sections of this tutorial. 
+When the preprocessor finds an #include directive it replaces it by the entire content of the specified header or file. 
+There are two ways to use #include:
+ - #include <header>
+ - #include "file" 
+
+In the first case, a header is specified between angle-brackets <>. This is used to include headers provided by the implementation, 
+such as the headers that compose the standard library (iostream, string,...). 
+Whether the headers are actually files or exist in some other form is implementation-defined, but in any case they shall be properly included with this directive.
+
+The syntax used in the second #include uses quotes, and includes a file. The file is searched for in an implementation-defined manner, 
+which generally includes the current path. In the case that the file is not found, 
+the compiler interprets the directive as a header inclusion, just as if the quotes ("") were replaced by angle-brackets (<>).
+*/
+
+/*
+Pragma directive (#pragma)
+==========================
+This directive is used to specify diverse options to the compiler. These options are specific for the platform and the compiler you use. 
+Consult the manual or the reference of your compiler for more information on the possible parameters that you can define with #pragma.
+
+If the compiler does not support a specific argument for #pragma, it is ignored - no syntax error is generated.
+*/
+
 int main()
 {
 #line 29 "Assigning variable syntax error..."
