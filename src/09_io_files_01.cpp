@@ -85,3 +85,16 @@ To check if a file stream was successful opening a file, you can do it by callin
 This member function returns a bool value of true in the case that indeed the stream object is associated with an open file, or false otherwise:
  - if (myfile.is_open()) { ok, proceed with output. }
 */
+
+/*
+Closing a file
+==============
+When we are finished with our input and output operations on a file we shall close it so that the operating system is notified 
+and its resources become available again. For that, we call the stream's member function close. 
+This member function takes flushes the associated buffers and closes the file:
+ - myfile.close();
+
+Once this member function is called, the stream object can be re-used to open another file, and the file is available again to be opened by other processes.
+
+In case that an object is destroyed while still associated with an open file, the destructor automatically calls the member function close.
+*/
