@@ -107,3 +107,6 @@ add_executable(08_preprocessor_directives_04 ${SOURCES})
 
 set(SOURCES src/09_io_files_01.cpp)
 add_executable(09_io_files_01 ${SOURCES})
+
+set(SOURCES src/09_io_files_02.cpp)
+add_executable(09_io_files_02 ${SOURCES})
