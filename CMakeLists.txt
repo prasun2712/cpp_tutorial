@@ -116,3 +116,6 @@ add_executable(09_io_files_03 ${SOURCES})
 
 set(SOURCES src/09_io_files_04.cpp)
 add_executable(09_io_files_04 ${SOURCES})
+
+set(SOURCES src/09_io_files_05.cpp)
+add_executable(09_io_files_05 ${SOURCES})
