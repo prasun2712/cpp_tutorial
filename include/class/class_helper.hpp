@@ -798,6 +798,8 @@ protected:
 
 public:
   AbstractPolygon3(double, double);
+  virtual ~AbstractPolygon3() = default; // Make destructor virtual
+
   virtual double area(void) = 0;
   void printarea();
 };

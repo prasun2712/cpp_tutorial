@@ -277,7 +277,7 @@ Rect::Rect(int x, int y) : width(x), height(y)
 
 Rect::Rect() = default;
 
-Rect::Rect(const Rect &other) = delete;
+// Rect::Rect(const Rect &other) = delete;
 
 int Rect::area()
 {
